@@ -13,7 +13,7 @@ int main() {
   std::cout << "How many flips?\n";
 
   int n;
-  std::cin >> n; // ignoring input validation for now
+  std::cin >> n;  // ignoring input validation for now
 
   std::vector<int> flips(n);
   std::generate(flips.begin(), flips.end(), coin);

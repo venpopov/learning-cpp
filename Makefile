@@ -3,6 +3,7 @@ CXXFLAGS = -std=c++17 -Wall -Wextra -Wpedantic -Werror
 SRC_DIR = src
 BIN_DIR = bin
 OBJ_DIR = obj
+LIB_DIR = lib
 
 # Find all cpp files in src directory
 SRCS = $(wildcard $(SRC_DIR)/*.cpp)
@@ -12,13 +13,16 @@ OBJS = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 EXECS = $(SRCS:$(SRC_DIR)/%.cpp=$(BIN_DIR)/%)
 
 # Default target
-all: $(BIN_DIR) $(OBJ_DIR) $(EXECS)
+all: $(LIB_DIR) $(BIN_DIR) $(OBJ_DIR) $(EXECS)
 
 # Combined directory creation
 $(BIN_DIR):
 	mkdir -p $@
 
 $(OBJ_DIR):
+	mkdir -p $@
+
+$(LIB_DIR):
 	mkdir -p $@
 
 # Rule to compile source files to object files
