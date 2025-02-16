@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <iostream>
 #include <random>
+#include "../lib/utils.hpp"
 
 auto coin() {
   static std::random_device rd;
@@ -18,9 +19,7 @@ int main() {
   std::vector<int> flips(n);
   std::generate(flips.begin(), flips.end(), coin);
 
-  for (auto item : flips) {
-    std::cout << item << ' ';
-  }
-  std::cout << '\n';
+  utils::print_vector(flips);
+
   return 0;
 }
